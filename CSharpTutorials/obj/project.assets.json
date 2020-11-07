@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\_zxmax\\source\\repos\\CSharpTutorials\\CSharpTutorials\\CSharpTutorials.csproj",
+      "projectUniqueName": "E:\\SelfProject\\C#\\CSharpTutorials\\CSharpTutorials\\CSharpTutorials.csproj",
       "projectName": "CSharpTutorials",
-      "projectPath": "C:\\Users\\_zxmax\\source\\repos\\CSharpTutorials\\CSharpTutorials\\CSharpTutorials.csproj",
+      "projectPath": "E:\\SelfProject\\C#\\CSharpTutorials\\CSharpTutorials\\CSharpTutorials.csproj",
       "packagesPath": "C:\\Users\\_zxmax\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\_zxmax\\source\\repos\\CSharpTutorials\\CSharpTutorials\\obj\\",
+      "outputPath": "E:\\SelfProject\\C#\\CSharpTutorials\\CSharpTutorials\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\_zxmax\\AppData\\Roaming\\NuGet\\NuGet.Config",
