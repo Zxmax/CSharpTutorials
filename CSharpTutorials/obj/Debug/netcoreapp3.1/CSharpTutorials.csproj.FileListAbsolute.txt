@@ -1,0 +1,13 @@
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.exe
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.deps.json
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.runtimeconfig.json
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.runtimeconfig.dev.json
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.dll
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.pdb
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.csprojAssemblyReference.cache
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.AssemblyInfoInputs.cache
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.AssemblyInfo.cs
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.csproj.CoreCompileInputs.cache
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.dll
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.pdb
+C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.genruntimeconfig.cache
