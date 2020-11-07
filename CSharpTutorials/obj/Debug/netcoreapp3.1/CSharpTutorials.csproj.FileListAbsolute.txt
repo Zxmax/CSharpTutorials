@@ -11,3 +11,16 @@ C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreap
 C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.dll
 C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.pdb
 C:\Users\_zxmax\source\repos\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.genruntimeconfig.cache
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.exe
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.deps.json
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.runtimeconfig.json
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.runtimeconfig.dev.json
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.dll
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\bin\Debug\netcoreapp3.1\CSharpTutorials.pdb
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.csprojAssemblyReference.cache
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.AssemblyInfoInputs.cache
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.AssemblyInfo.cs
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.csproj.CoreCompileInputs.cache
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.dll
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.pdb
+E:\SelfProject\C#\CSharpTutorials\CSharpTutorials\obj\Debug\netcoreapp3.1\CSharpTutorials.genruntimeconfig.cache

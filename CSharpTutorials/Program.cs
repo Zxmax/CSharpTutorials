@@ -11,6 +11,10 @@ namespace CSharpTutorials
         private static void Main()
         {
             Console.WriteLine("C#基础");
+            byte a = 200;
+            byte b = 100;
+            var c = a + b;
+            Console.WriteLine(a += b);
         }
     }
 }
