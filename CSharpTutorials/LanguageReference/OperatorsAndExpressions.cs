@@ -19,7 +19,6 @@ namespace CSharpTutorials.LanguageReference
         public void Arithmetic()
         {
             int ia = 0, ib = 0, ic = 0;
-            double dc = 0f;
 
             ia++;//先使用ia再+1
             ++ia;//先+1再使用
