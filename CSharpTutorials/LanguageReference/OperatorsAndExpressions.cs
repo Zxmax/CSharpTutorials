@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CSharpTutorials.LanguageReference
 {
@@ -18,7 +19,7 @@ namespace CSharpTutorials.LanguageReference
         public void Arithmetic()
         {
             int ia = 0, ib = 0, ic = 0;
-            double  dc = 0f;
+            double dc = 0f;
 
             ia++;//先使用ia再+1
             ++ia;//先+1再使用
@@ -96,7 +97,211 @@ namespace CSharpTutorials.LanguageReference
 
         #region 布尔逻辑运算符
 
+        //一元 !（逻辑非）运算符。
+        public void Unary()
+        {
+            const bool passed = false;
+            Console.WriteLine(!passed);  // output: True
+            Console.WriteLine(!true);    // output: False
+        }
+        //二元 &（逻辑与）、|（逻辑或）和 ^（逻辑异或）运算符。 这些运算符 !!始终计算!! 两个操作数。
+        public void Binary()
+        {
+            Console.WriteLine(true & true);    // output: True
+            Console.WriteLine(true & false);   // output: False
+            Console.WriteLine(false & true);   // output: False
+            Console.WriteLine(false & false);  // output: False
+
+            Console.WriteLine(true ^ true);    // output: False
+            Console.WriteLine(true ^ false);   // output: True
+            Console.WriteLine(false ^ true);   // output: True
+            Console.WriteLine(false ^ false);  // output: False
+
+            Console.WriteLine(true | true);    // output: True
+            Console.WriteLine(true | false);   // output: True
+            Console.WriteLine(false | true);   // output: True
+            Console.WriteLine(false | false);  // output: False
+
+        }
+        //二元 &&（条件逻辑与）和 ||（条件逻辑或）运算符。 这些运算符 !!仅在必要时!! 才计算右侧操作数。
+        public void Binary2()
+        {
+            Console.WriteLine(true && true);    // output: True
+            Console.WriteLine(true && false);   // output: False
+            Console.WriteLine(false && true);   // output: False
+            Console.WriteLine(false && false);  // output: False
+
+            Console.WriteLine(true || true);    // output: True
+            Console.WriteLine(true || false);   // output: True
+            Console.WriteLine(false || true);   // output: True
+            Console.WriteLine(false || false);  // output: False
+
+        }
+        #endregion
+
+        #region 位运算符和移位运算符
+
+        //一元 ~（按位求补）运算符
+        public void UnaryOperator()
+        {
+            const uint bitwiseComplementBefore = 0b_0000_1111_0000_1111_0000_1111_0000_1100;
+            const uint bitwiseComplement = ~bitwiseComplementBefore;
+            Console.WriteLine(Convert.ToString(bitwiseComplement, toBase: 2));
+            // Output:
+            // 11110000111100001111000011110011
+
+        }
+        //二进制 <<（向左移位）和 >>（向右移位）移位运算符
+        public void BinaryShiftOperators()
+        {
+            const uint leftShiftBefore = 0b_1100_1001_0000_0000_0000_0000_0001_0001;
+            Console.WriteLine($"Before: {Convert.ToString(leftShiftBefore, toBase: 2)}");
+
+            const uint leftShift = leftShiftBefore << 4;
+            Console.WriteLine($"After:  {Convert.ToString(leftShift, toBase: 2)}");
+            // Output:
+            // Before: 11001001000000000000000000010001
+            // After:  10010000000000000000000100010000
+
+            const uint rightShiftBefore = 0b_1001;
+            Console.WriteLine($"Before: {Convert.ToString(rightShiftBefore, toBase: 2),4}");
+
+            const uint rightShift = rightShiftBefore >> 2;
+            Console.WriteLine($"After:  {Convert.ToString(rightShift, toBase: 2),4}");
+            // Output:
+            // Before: 1001
+            // After:    10
+        }
+        //二进制 &（逻辑 AND）、|（逻辑 OR）和 ^（逻辑异或）运算符
+        public void BinaryOperators()
+        {
+            //逻辑与运算符 &
+            const uint logicalAndA = 0b_1111_1000;
+            const uint logicalAndB = 0b_1001_1101;
+            const uint logicalAndC = logicalAndA & logicalAndB;
+            Console.WriteLine(Convert.ToString(logicalAndC, toBase: 2));
+            // Output:
+            // 10011000
+
+            //逻辑异或运算符 ^
+            const uint logicalOrA = 0b_1010_0000;
+            const uint logicalOrB = 0b_1001_0001;
+            const uint logicalOrC = logicalOrA | logicalOrB;
+            Console.WriteLine(Convert.ToString(logicalOrC, toBase: 2));
+            // Output:
+            // 10110001
+
+            //逻辑或运算符 |
+            const uint logicalExclusiveOrA = 0b_1111_1000;
+            const uint logicalExclusiveOrB = 0b_0001_1100;
+            const uint logicalExclusiveOrC = logicalExclusiveOrA ^ logicalExclusiveOrB;
+            Console.WriteLine(Convert.ToString(logicalExclusiveOrC, toBase: 2));
+            // Output:
+            // 11100100
+        }
+
+        public void CompoundAssignment()
+        {
+            uint a = 0b_1111_1000;
+            a &= 0b_1001_1101;
+            Display(a);  // output: 10011000
+
+            a |= 0b_0011_0001;
+            Display(a);  // output: 10111001
+
+            a ^= 0b_1000_0000;
+            Display(a);  // output:   111001
+
+            a <<= 2;
+            Display(a);  // output: 11100100
+
+            a >>= 4;
+            Display(a);  // output:     1110
+
+            void Display(uint x) => Console.WriteLine($"{Convert.ToString(x, toBase: 2),8}");
+
+        }
+        #endregion
+
+        #region 相等运算符
+        public void Equal()
+        {
+            //值类型的相等性
+            int a = 1 + 2 + 3;
+            int b = 6;
+            Console.WriteLine(a == b);  // output: True
+
+            char c1 = 'a';
+            char c2 = 'A';
+            Console.WriteLine(c1 == c2);  // output: False
+            Console.WriteLine(c1 == char.ToLower(c2));  // output: True
+
+            //引用类型的相等性
+
+            var ac = new MyClass(1);
+            var bc = new MyClass(1);
+            var cc = ac;
+            Console.WriteLine(ac == bc);  // output: False
+            Console.WriteLine(ac == cc);  // output: True
+
+            //记录类型相等性
+
+            //字符串相等性
+            string s1 = "hello!";
+            string s2 = "HeLLo!";
+            Console.WriteLine(s1 == s2.ToLower());  // output: True
+
+            string s3 = "Hello!";
+            Console.WriteLine(s1 == s3);  // output: False
+
+            //委托相等
+            Action da = () => Console.WriteLine("da");
+
+            Action db = da + da;
+            Action dc = da + da;
+            Console.WriteLine(object.ReferenceEquals(db, dc));  // output: False
+            Console.WriteLine(db == dc);  // output: True
+
+            Action da2 = () => Console.WriteLine("da2");
+            Action db2 = () => Console.WriteLine("da2");
+            //通过计算语义上相同的 Lambda 表达式生成的委托不相等
+            Console.WriteLine(da2 == db2);  // output: False
+            Console.WriteLine(da2 + db2 == da2 + db2);  // output: True
+            Console.WriteLine(db2 + da2 == da2 + db2);  // output: False
+
+        }
+
+        //不等运算符 !=
+        public void NotEqual()
+        {
+            //值
+            int a = 1 + 1 + 2 + 3;
+            int b = 6;
+            Console.WriteLine(a != b);  // output: True
+
+            string s1 = "Hello";
+            string s2 = "Hello";
+            Console.WriteLine(s1 != s2);  // output: False
+
+            //对象
+            object o1 = 1;
+            object o2 = 1;
+            Console.WriteLine(o1 != o2);  // output: True
+        }
+        public class MyClass
+        {
+            private int id;
+
+            public MyClass(int id) => this.id = id;
+        }
+
+
+        #endregion
+
+        #region 比较运算符
+
         
+
         #endregion
     }
 }
