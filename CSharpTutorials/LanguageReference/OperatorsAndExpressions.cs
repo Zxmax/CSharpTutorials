@@ -299,8 +299,223 @@ namespace CSharpTutorials.LanguageReference
 
         #region 比较运算符
 
-        
+        //<（小于）、>（大于）、<=（小于或等于）和 >=（大于或等于）比较（也称为关系）运算符比较其操作数。
+        //所有整型和浮点数值类型都支持这些运算符。
 
         #endregion
+
+        #region 成员访问运算符和表达式
+
+        //成员访问表达式 .
+        //使用 . 标记来访问命名空间或类型的成员，如以下示例所示：
+        //using System.Collections.Generic;
+        //使用 . 构成限定名称以访问命名空间中的类型，如下面的代码所示：
+        //System.Collections.Generic.IEnumerable<int> numbers = new int[] { 1, 2, 3 };
+        //使用 . 访问类型成员（静态和非静态），如下面的代码所示：
+        //var constants = new List<double>();
+        //constants.Add(Math.PI);
+        //constants.Add(Math.E);
+        //Console.WriteLine($"{constants.Count} values to show:");//Console.WriteLine(string.Join(", ", constants));
+        // Output:
+        // 2 values to show:
+        // 3.14159265358979, 2.71828182845905
+
+        //索引器运算符 []
+        //数组访问
+        public void Array()
+        {
+            int[] fib = new int[10];
+            fib[0] = fib[1] = 1;
+            for (int i = 2; i < fib.Length; i++)
+            {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            Console.WriteLine(fib[fib.Length - 1]);  // output: 55
+
+            double[,] matrix = new double[2, 2];
+            matrix[0, 0] = 1.0;
+            matrix[0, 1] = 2.0;
+            matrix[1, 0] = matrix[1, 1] = 3.0;
+            var determinant = matrix[0, 0] * matrix[1, 1] - matrix[1, 0] * matrix[0, 1];
+            Console.WriteLine(determinant);  // output: -3
+        }
+        //索引器访问
+        public void Dictionary()
+        {
+            var dict = new Dictionary<string, double>();
+            dict["one"] = 1;
+            dict["pi"] = Math.PI;
+            Console.WriteLine(dict["one"] + dict["pi"]);  // output: 4.14159265358979
+        }
+        //方括号还用于指定属性：
+        [System.Diagnostics.Conditional("DEBUG")]
+        void TraceMethod() { }
+
+        //Null 条件运算符 ?. 和 ?[]
+        //当操作数的计算结果为非 null 时，null 条件运算符才会将成员访问 ?. 或元素访问 ?[] 运算应用于其操作数；否则，将返回 null。 即：
+        //如果 a 的计算结果为 null，则 a?.x 或 a?[x] 的结果为 null。
+        //如果 a 的计算结果为非 null，则 a?.x 或 a?[x] 的结果将分别与 a.x 或 a[x] 的结果相同。
+
+        //PropertyChanged?.Invoke(…)
+
+        //调用表达式 ()
+        public void Invocation()
+        {
+            Action<int> display = s => Console.WriteLine(s);
+
+            var numbers = new List<int>();
+            numbers.Add(10);
+            numbers.Add(17);
+            display(numbers.Count);   // output: 2
+
+            numbers.Clear();
+            display(numbers.Count);   // output: 0
+        }
+        //此外可以使用括号来调整表达式中计算操作的顺序
+        //强制转换表达式，其执行显式类型转换，也可以使用括号。
+
+        //  从末尾运算符 ^ 开始索引
+        //^ 运算符指示序列末尾的元素位置。 对于长度为 length 的序列，^n 指向与序列开头偏移 length - n 的元素。
+        //例如，^1 指向序列的最后一个元素，^length 指向序列的第一个元素。
+        public void LastIndex()
+        {
+            int[] xs = new[] { 0, 10, 20, 30, 40 };
+            int last = xs[^1];
+            Console.WriteLine(last);  // output: 40
+
+            var lines = new List<string> { "one", "two", "three", "four" };
+            string prelast = lines[^2];
+            Console.WriteLine(prelast);  // output: three
+
+            string word = "Twenty";
+            Index toFirst = ^word.Length;
+            char first = word[toFirst];
+            Console.WriteLine(first);  // output: T
+        }
+
+        //范围运算符 ..
+        public void Range()
+        {
+            int[] numbers = new[] { 0, 10, 20, 30, 40, 50 };
+            int start = 1;
+            int amountToTake = 3;
+            int[] subset = numbers[start..(start + amountToTake)];
+            Display(subset);  // output: 10 20 30
+
+            int margin = 1;
+            int[] inner = numbers[margin..^margin];
+            Display(inner);  // output: 10 20 30 40
+
+            string line = "one two three";
+            int amountToTakeFromEnd = 5;
+            Range endIndices = ^amountToTakeFromEnd..^0;
+            string end = line[endIndices];
+            Console.WriteLine(end);  // output: three
+
+            void Display<T>(IEnumerable<T> xs) => Console.WriteLine(string.Join(" ", xs));
+
+            //可以省略 .. 运算符的任何操作数来获取无限制范围：
+            //a..等效于 a..^0.
+            //.b 等效于 0..b
+            //..等效于 0..^0
+        }
+
+        #endregion
+
+        #region 类型测试运算符和强制转换表达式
+        public class Base { }
+        public class Derived : Base { }
+
+        public void TypeTesting()
+        {
+            //is 运算符：用于检查表达式的运行时类型是否与给定类型兼容
+            object b = new Base();
+            Console.WriteLine(b is Base); // output: True
+            Console.WriteLine(b is Derived); // output: False
+
+            object d = new Derived();
+            Console.WriteLine(d is Base); // output: True
+            Console.WriteLine(d is Derived); // output: True
+
+            int i = 27;
+            Console.WriteLine(i is System.IFormattable); // output: True
+
+            object iBoxed = i;
+            Console.WriteLine(iBoxed is int); // output: True
+            Console.WriteLine(iBoxed is long); // output: False
+            //从 C# 7.0 开始，is 运算符还会对照某个模式测试表达式结果。 具体而言，它支持以下形式的类型模式：
+            int i2 = 23;
+            object iBoxed2 = i2;
+            int? jNullable = 7;
+            if (iBoxed is int a2 && jNullable is { } b2)
+            {
+                Console.WriteLine(a2 + b2); // output 30
+            }
+
+            // as 运算符：用于将表达式显式转换为给定类型（如果其运行时类型与该类型兼容）
+            IEnumerable<int> numbers = new[] {10, 20, 30};
+            IList<int> indexable = numbers as IList<int>;
+            if (indexable != null)
+            {
+                Console.WriteLine(indexable[0] + indexable[^1]); // output: 40
+            }
+
+            //强制转换表达式：执行显式转换
+            double x = 1234.7;
+            int a = (int) x;
+            Console.WriteLine(a); // output: 1234
+
+            IEnumerable<int> numbers2 = new int[] {10, 20, 30};
+            IList<int> list = (IList<int>) numbers;
+            Console.WriteLine(list.Count); // output: 3
+            Console.WriteLine(list[1]); // output: 20
+
+            //typeof 运算符：用于获取某个类型的 System.Type 实例
+            //typeof 运算符用于获取某个类型的 System.Type 实例。 typeof 运算符的实参必须是类型或类型形参的名称，如以下示例所示：
+            void PrintType<T>() => Console.WriteLine(typeof(T));
+
+            Console.WriteLine(typeof(List<string>));
+            PrintType<int>();
+            PrintType<System.Int32>();
+            PrintType<Dictionary<int, char>>();
+            // Output:
+            // System.Collections.Generic.List`1[System.String]
+            // System.Int32
+            // System.Int32
+            // System.Collections.Generic.Dictionary`2[System.Int32,System.Char]
+        }
+
+        public readonly struct Digit
+        {
+            private readonly byte digit;
+
+            public Digit(byte digit)
+            {
+                if (digit > 9)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(digit), "Digit cannot be greater than nine.");
+                }
+                this.digit = digit;
+            }
+
+            public static implicit operator byte(Digit d) => d.digit;
+            public static explicit operator Digit(byte b) => new Digit(b);
+
+            public override string ToString() => $"{digit}";
+            public static void OverrideTest()
+            {
+                var d = new Digit(7);
+
+                byte number = d;
+                Console.WriteLine(number);  // output: 7
+
+                Digit digit = (Digit)number;
+                Console.WriteLine(digit);  // output: 7
+            }
+        }
     }
+
+    #endregion
+
+
 }
